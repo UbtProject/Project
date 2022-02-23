@@ -76,11 +76,23 @@
 				<img class="about-main-img" src="img/animal-shelter2.jpg" >
 				<div class="volunteer-children child2">
 					
-						<label class="input-label">Name: </label><br> <input class="volunteer-input" id="volunteer-name" type="text" name="name" placeholder="Name..."><br><p class="validation" id="name-valid"></p><br>
-						<label class="input-label">Lastname: </label><br> <input class="volunteer-input" id="volunteer-lastname" type="text" name="lastname" placeholder="Lastname..."><br><p class="validation" id="lastname-valid"></p><br>
-						<label class="input-label">Email: </label><br> <input class="volunteer-input" id="volunteer-email" type="email" name="text" placeholder="Email..."><br><p class="validation" id="email-valid"></p><br>
-						<label class="input-label">Phone Number: </label><br> <input class="volunteer-input" id="volunteer-number" type="text" name="number" placeholder="Number..."><br><p class="validation" id="number-valid"></p><br>		
-						<button type="submit" name="submit" class="slide-quiz-btn" onclick="volunteer()">Volunteer</button>
+						<label class="input-label">Name: </label><br> 
+						<input class="input" id="about-name" type="text" name="name" placeholder="Name..."><br>
+						<p class="validation" id="about-name-valid"></p><br>
+
+						<label class="input-label">Lastname: </label><br> 
+						<input class="input" id="about-lastname" type="text" name="lastname" placeholder="Lastname..."><br>
+						<p class="validation" id="about-lastname-valid"></p><br>
+
+						<label class="input-label">Email: </label><br> 
+						<input class="input" id="about-email" type="email" name="text" placeholder="Email..."><br>
+						<p class="validation" id="about-email-valid"></p><br>
+
+						<label class="input-label">Phone Number: </label><br> 
+						<input class="input" id="about-number" type="text" name="number" placeholder="Number..."><br>
+						<p class="validation" id="about-number-valid"></p><br>	
+
+						<button type="submit" name="submit" class="slide-quiz-btn" onclick="aboutValidation()">Volunteer</button>
 					
 				</div>
 			</div>
