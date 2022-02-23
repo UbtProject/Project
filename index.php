@@ -171,7 +171,7 @@
 	?>
 
 
-	<script src="Includes/Js/main.js">
+	<script>
 		var mySlideImages = ["slide1.jpg","slide2.jpg","slide3.jpg"];
 		var i=0;
 

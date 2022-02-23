@@ -112,8 +112,11 @@ function contactValidation(){
 	}
 }
 
+var loginBtn = document.getElementById('loginBtn');
 
-function loginValidation(){
+
+
+loginBtn.addEventListener("click", function (event) {
 	var regexEmail=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
 	var regexPass=/[A-Z]\w{7,15}/;
 
@@ -125,18 +128,22 @@ function loginValidation(){
 	
 	if(email.value==""||!regexEmail.test(email.value)){
  		validEmail.innerHTML=" Email Not Valid";
+ 		event.preventDefault();
+
 	}
 	else{
 		validEmail.innerHTML="";
 	}
 	if(password.value==""||!regexPass.test(password.value)){
  		validPassword.innerHTML=" Password Not Valid";
+ 		event.preventDefault();
+
 	}
 	else{
 		validPassword.innerHTML="";
 	}
 	
-}
+});
 var registerBtn = document.getElementById('registerBtn');
 
 

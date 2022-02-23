@@ -47,7 +47,31 @@ class userRepository{
 	    }
 	}
 
+	function logIn(){
 
+        $conn = $this->connection;
+        $email=$_POST['email'];
+        $password=$_POST['password'];
+       	$sql = "SELECT name, role, password FROM users WHERE email='$email'";
+		$statement = $conn->query($sql);
+       	$user = $statement->fetch(PDO::FETCH_ASSOC);
+		
+		if($statement->rowCount() < 1){
+       		echo "<script> alert('Email entered incorrectly!'); </script>";
+		}
+		else{
+       		if (!password_verify($password,$user['password'])) {
+       			echo "<script> alert('Password entered incorrectly!'); </script>";
+       		}
+       		else{
+       			session_start();
+       			$_SESSION['name'] = $user['name'];
+       			$_SESSION['role'] = $user['role'];
+       			header("location:profile.php");
+
+        	}
+    	}
+	}
 
 
 }

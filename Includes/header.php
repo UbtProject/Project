@@ -4,8 +4,23 @@
  		<div class="nav-right">
  			<a href="about.php">About</a>
  			<a href="contact.php">Contact</a>
-  			<a href="logIn.php">Log In</a>
-  			<a href="signUp.php">Sign Up</a>
+ 			<?php
+ 			    session_start();
+ 				if(isset($_SESSION['role'])){
+ 					echo "
+ 						<a href='Profile.php'>".$_SESSION['name']."</a>
+ 						<a href='logout.php'>Log out</a>
+  						";
+ 					
+ 				}
+ 				else{
+ 					echo "
+ 						<a href='logIn.php'>Log In</a>
+  						<a href='signUp.php'>Sign Up</a>
+  						";
+ 				}
+
+ 			?>
   		</div>
 	</div>
 </header>
