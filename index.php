@@ -15,31 +15,31 @@
 
 	<!-- Slideshow -->
 
-
-	<div class="Slideshow">
-		<img id="slideshow" style="width:100%; height: 500px;">
-		<div class="slide-top-left">
-			<h1>About our animal shelter</h1>
-			<p style="font-size: 18px;"><b>Paws is the biggest Animal Shelter in the region, based in Prishtina, Kosovo.
-			 We shelter around 500 animals each year.<br><br>
-			 Our purpose is to rescue hurt and abandoned animals and find them a suitable forever home.<br><br>
-			 Visitors are always welcome to meet, give love and adopt animals as well as volunteer for our shelter.<br>
-			 We have a hardworking staff offering excellent care to the animals and guiding new volunteers into our programs.</b></p>
+	<div class="container">
+		<div class="Slideshow">
+			<img id="slideshow" style="width:100%; height: 500px;">
+			<div class="slide-top-left">
+				<h1>About our animal shelter</h1>
+				<p style="font-size: 18px;"><b>Paws is the biggest Animal Shelter in the region, based in Prishtina, Kosovo.
+				 We shelter around 500 animals each year.<br><br>
+				 Our purpose is to rescue hurt and abandoned animals and find them a suitable forever home.<br><br>
+				 Visitors are always welcome to meet, give love and adopt animals as well as volunteer for our shelter.<br>
+				 We have a hardworking staff offering excellent care to the animals and guiding new volunteers into our programs.</b></p>
+			</div>
+			<div class="slide-top-right">
+				<h1>Which animal is more suitable for you?</h1><br>
+				<a href="quiz.php">
+					<button class="slide-quiz-btn">TAKE THE QUIZ</button>
+				</a>
+			</div>
 		</div>
-		<div class="slide-top-right">
-			<h1>Which animal is more suitable for you?</h1><br>
-			<a href="quiz.php">
-				<button class="slide-quiz-btn">TAKE THE QUIZ</button>
-			</a>
-		</div>
-	</div>
 
 
 
 
 	<!-- Main Page -->
 
-	<div class="container"><br><br>
+	<br><br>
 		<h1 class="container-title">These are our oldest rescued animals</h1><br><br>
 			<!-- Old Animals -->
 

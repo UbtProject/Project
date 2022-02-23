@@ -1,4 +1,5 @@
-<footer>
+<footer class="footer">
+	<hr>
 	<div class="footer-container">
 		<div class="first-box" style="padding: 10px;">
 			<div class="left-footer">
