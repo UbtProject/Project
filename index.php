@@ -111,10 +111,9 @@
 				<img class="card-img" src="img/new_animal2.jpg" width="300" height="300">
 				<div class="card-text">
 					<h1>Mat</h1><hr>
-					<p><b>Mat</b> was given to us 3 months ago when he was born</p>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+					<p><b>Mat</b> was given to us 3 months ago after his owners death. He is still a puppy and has a long life ahead.</p>
+					<p>He is very energetic and loves long walks and fetch games by the sea. </p>
+					<p>An ideal family for him would be someone who has a backyard where he can run freely anytime he wants.</p>
 
 				</div>
 			</div>
@@ -152,10 +151,13 @@
 					</p>
 				</div>
 				<div class="volunteer-children child2">
-					<label class="input-label">Name: </label><br> <input class="volunteer-input" type="text" name="name" placeholder="Name..."><br><br>
-					<label class="input-label">Lastname: </label><br> <input class="volunteer-input" type="text" name="lastname" placeholder="Lastname..."><br><br>
-					<label class="input-label">Email: </label><br> <input class="volunteer-input" type="text" name="email" placeholder="Email..."><br><br>
-					<label class="input-label">Phone Number: </label><br> <input class="volunteer-input" type="text" name="number" placeholder="Number...">
+					
+						<label class="input-label">Name: </label><br> <input class="volunteer-input" id="volunteer-name" type="text" name="name" placeholder="Name..."><br><p class="validation" id="name-valid"></p><br>
+						<label class="input-label">Lastname: </label><br> <input class="volunteer-input" id="volunteer-lastname" type="text" name="lastname" placeholder="Lastname..."><br><p class="validation" id="lastname-valid"></p><br>
+						<label class="input-label">Email: </label><br> <input class="volunteer-input" id="volunteer-email" type="email" name="text" placeholder="Email..."><br><p class="validation" id="email-valid"></p><br>
+						<label class="input-label">Phone Number: </label><br> <input class="volunteer-input" id="volunteer-number" type="text" name="number" placeholder="Number..."><br><p class="validation" id="number-valid"></p><br>		
+						<button type="submit" name="submit" class="slide-quiz-btn" onclick="volunteer()">Volunteer</button>
+					
 				</div>
 			</div>
 		</div>
