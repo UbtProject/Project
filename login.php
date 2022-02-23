@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="Css/Style.css">
+	<link rel="stylesheet" type="text/css" href="Includes/Css/Style.css">
 
 </head>
 <body>
@@ -45,6 +45,6 @@
 	?>
 	</div>
 
-	<script src="Js/main.js"></script>
+	<script src="Includes/Js/main.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="Css/Style.css">
+	<link rel="stylesheet" type="text/css" href="Includes/Css/Style.css">
 
 </head>
 <body>
@@ -33,7 +33,7 @@
 
 		<div>
 			<div class="about-main" >
-				<img class="about-main-img" src="img/animal-shelter.jpg" >
+				<img class="about-main-img" src="Includes/img/animal-shelter.jpg" >
 				<div style="width:100%; padding:4%; padding-bottom:7%;">
 					<h3 class="mission-h3" style="font-size:15px;">Our People</h3>
 					<h2>Creating a community for all</h2>
@@ -73,7 +73,7 @@
 
 		<div class="volunteer-background">
 			<div class="volunteer-container">
-				<img class="about-main-img" src="img/animal-shelter2.jpg" >
+				<img class="about-main-img" src="Includes/img/animal-shelter2.jpg" >
 				<div class="volunteer-children child2">
 					
 						<label class="input-label">Name: </label><br> 
@@ -108,6 +108,6 @@
 	?>
 	</div>
 
-	<script src="Js/main.js"></script>
+	<script src="Includes/Js/main.js"></script>
 </body>
 </html>

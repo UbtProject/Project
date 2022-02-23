@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="Css/Style.css">
+	<link rel="stylesheet" type="text/css" href="Includes/Css/Style.css">
 
 </head>
 <body>
@@ -46,7 +46,7 @@
 		<div class="animal-img">
 			<a class="img-direction">&#10094</a>
 			<div class="card-container">
-				<img class="card-img" src="img/old-dog1.jpg" width="300" height="300">
+				<img class="card-img" src="Includes/img/old-dog1.jpg" width="300" height="300">
 				<div class="card-text">
 					<h1>Harold</h1><hr>
 					<p><b>Harold</b> has been in our shelter for 8 years now.</p>
@@ -56,7 +56,7 @@
 			</div>
 
 			<div class="card-container">
-				<img class="card-img" src="img/old-dog2.jpg" width="300" height="300">
+				<img class="card-img" src="Includes/img/old-dog2.jpg" width="300" height="300">
 				<div class="card-text">
 					<h1>Tracy</h1><hr>
 					<p><b>Tracy</b> has been in our care for 7 years.</p>
@@ -68,7 +68,7 @@
 			</div>
 
 			<div class="card-container">
-				<img class="card-img" src="img/old-dog3.jpg" width="300" height="300">
+				<img class="card-img" src="Includes/img/old-dog3.jpg" width="300" height="300">
 				<div class="card-text">
 					<h1>Pluto</h1><hr>
 					<p><b>Pluto</b> joined our shelter 9 years ago</p>
@@ -79,7 +79,7 @@
 			</div>
 
 			<div class="card-container">
-				<img class="card-img" src="img/old-dog4.jpg" width="300" height="300">
+				<img class="card-img" src="Includes/img/old-dog4.jpg" width="300" height="300">
 				<div class="card-text">
 					<h1>Almin</h1><hr>
 					<p><b>Almin</b> was found 2 years ago and is currently 11 years old</p>
@@ -98,7 +98,7 @@
 		<div class="animal-img">
 			<a class="img-direction">&#10094</a>
 			<div class="card-container">
-				<img class="card-img" src="img/new_animal1.jpg" width="300" height="300">
+				<img class="card-img" src="Includes/img/new_animal1.jpg" width="300" height="300">
 				<div class="card-text">
 					<h1>Katy</h1><hr>
 					<p><b>Katy</b> was born from one of our cats 2 months ago</p>
@@ -108,7 +108,7 @@
 			</div>
 
 			<div class="card-container">
-				<img class="card-img" src="img/new_animal2.jpg" width="300" height="300">
+				<img class="card-img" src="Includes/img/new_animal2.jpg" width="300" height="300">
 				<div class="card-text">
 					<h1>Mat</h1><hr>
 					<p><b>Mat</b> was given to us 3 months ago after his owners death. He is still a puppy and has a long life ahead.</p>
@@ -119,7 +119,7 @@
 			</div>
 
 			<div class="card-container">
-				<img class="card-img" src="img/new_animal3.jpg" width="300" height="300">
+				<img class="card-img" src="Includes/img/new_animal3.jpg" width="300" height="300">
 				<div class="card-text">
 					<h1>Haru</h1><hr>
 					<p><b>Haru</b> has been in our shelter for 2 months.</p>
@@ -129,7 +129,7 @@
 			</div>
 
 			<div class="card-container">
-				<img class="card-img" src="img/new_animal4.jpg" width="300" height="300">
+				<img class="card-img" src="Includes/img/new_animal4.jpg" width="300" height="300">
 				<div class="card-text">
 					<h1>Simba</h1><hr>
 					<p><b>Simba</b> has been in the shelter for about 4 months now.</p>
@@ -151,13 +151,13 @@
 					</p>
 				</div>
 				<div class="volunteer-children child2">
-					
+					<form >
 						<label class="input-label">Name: </label><br> <input class="input" id="volunteer-name" type="text" name="name" placeholder="Name..."><br><p class="validation" id="name-valid"></p><br>
 						<label class="input-label">Lastname: </label><br> <input class="input" id="volunteer-lastname" type="text" name="lastname" placeholder="Lastname..."><br><p class="validation" id="lastname-valid"></p><br>
 						<label class="input-label">Email: </label><br> <input class="input" id="volunteer-email" type="email" name="text" placeholder="Email..."><br><p class="validation" id="email-valid"></p><br>
 						<label class="input-label">Phone Number: </label><br> <input class="input" id="volunteer-number" type="text" name="number" placeholder="Number..."><br><p class="validation" id="number-valid"></p><br>		
 						<button type="submit" name="submit" class="slide-quiz-btn" onclick="volunteer()">Volunteer</button>
-					
+					</form>
 				</div>
 			</div>
 		</div>
@@ -171,6 +171,26 @@
 	?>
 
 
-	<script src="Js/main.js"></script>
+	<script src="Includes/Js/main.js">
+		var mySlideImages = ["slide1.jpg","slide2.jpg","slide3.jpg"];
+		var i=0;
+
+
+
+		slideShow();
+
+		function slideShow(){
+			document.getElementById("slideshow").src="Includes/img/"+mySlideImages[i];
+			setTimeout(function () {
+				if (i< mySlideImages.length - 1) {
+					i++
+				}
+				else{
+					i=0;
+				}
+				slideShow();
+			},4000)
+		}
+	</script>
 </body>
 </html>
