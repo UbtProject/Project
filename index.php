@@ -122,44 +122,44 @@
 			<div class="card-container">
 				<img class="card-img" src="img/new_animal3.jpg" width="300" height="300">
 				<div class="card-text">
-					<h1>Simba</h1><hr>
-					<p><b>Simba</b> was found as a kitten lost in the city streets</p>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+					<h1>Haru</h1><hr>
+					<p><b>Haru</b> has been in our shelter for 2 months.</p>
+					<p>He has been found near a lake at only 4 months old. He is now 6 months and healthier than ever.</p>
+					<p>Haru is a very playful kitten and loves attention. A big family would be the best fit for him so he’s never alone.</p>
 				</div>
 			</div>
 
 			<div class="card-container">
 				<img class="card-img" src="img/new_animal4.jpg" width="300" height="300">
 				<div class="card-text">
-					<h1>Bell</h1><hr>
-					<p><b>Bell</b> has been given out a month ago after being born from a cat</p>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+					<h1>Simba</h1><hr>
+					<p><b>Simba</b> has been in the shelter for about 4 months now.</p>
+					<p>She is around 3 years old and was found in awful conditions with two broken legs.</p>
+					<p>After numerous visits at the vet she is all healed up now and ready for her new family.</p>
+					<p>She is pretty laidback and her ideal family would be someone patient who is willing to gain her trust.</p>
 				</div>
 			</div>
 			<a class="img-direction">&#10095</a>
 		</div>
 		<br><br><br><br>
 		<!-- Volunteer Section -->
-
-		<span>
-			<div>
-				<h1>Become a volunteer</h1>
-				<p>
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-				</p>
+		<div class="volunteer-background">
+			<div class="volunteer-container">
+				<div class="volunteer-children child1">
+					<h1>Become a volunteer</h1>
+					<p>
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+					</p>
+				</div>
+				<div class="volunteer-children child2">
+					<label class="input-label">Name: </label><br> <input class="volunteer-input" type="text" name="name" placeholder="Name..."><br><br>
+					<label class="input-label">Lastname: </label><br> <input class="volunteer-input" type="text" name="lastname" placeholder="Lastname..."><br><br>
+					<label class="input-label">Email: </label><br> <input class="volunteer-input" type="text" name="email" placeholder="Email..."><br><br>
+					<label class="input-label">Phone Number: </label><br> <input class="volunteer-input" type="text" name="number" placeholder="Number...">
+				</div>
 			</div>
-			<div>
-				<h1>Become a volunteer</h1>
-				<p>
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-				</p>
-			</div>
-		</span>
-
+		</div>
+		<br><br><br><br><br><br>
 	</div>
 
 

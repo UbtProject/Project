@@ -69,7 +69,6 @@ body {
 
 .container{
   width: 100%;
-  text-align: center;
   background-color: #f2f5f7;
 }
 .container-title{
@@ -106,5 +105,42 @@ body {
   border-top: 0;
   background-color: #e6e9eb ;
   font-family: monospace;
+  font-size: 16px;
+}
+
+
+
+.volunteer-background{
+  background-color: #333;
+  padding: 16px;
+}
+.volunteer-container{
+  display: flex;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f2f5f7;
+}
+.volunteer-children{
+  padding: 35px;
+}
+
+.child1{
+  width: 70%;
+  border-right: solid 1px lightgray;
+}
+.child2{
+  width: 30%;
+}
+
+
+
+.input-label{
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+.volunteer-input{
+  margin-top: 7px;
+  height: 23px;
   font-size: 16px;
 }
