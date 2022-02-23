@@ -5,10 +5,10 @@
 			<div class="left-footer">
 				<img class="logo" src="img/Logo.png" width="30" height="30">
 				<br><br><p class="follow" >Follow Us: </p>
-				<a href="https://www.facebook.com"><img class="logo" src="img/fb-logo.png" width="30" height="30"></a>
-				<a href="https://www.instagram.com"><img class="logo" src="img/insta-logo.png" width="30" height="30"></a>
-				<a href="https://twitter.com"><img class="logo" src="img/twitter-logo.png" width="30" height="30"></a>
-				<a href="https://www.youtube.com"><img class="logo" src="img/youtube-logo.png" width="30" height="30"></a>
+				<a href="https://www.facebook.com"><img class="logo contact-icon" src="img/fb-logo.png" width="30" height="30"></a>
+				<a href="https://www.instagram.com"><img class="logo contact-icon" src="img/insta-logo.png" width="30" height="30"></a>
+				<a href="https://twitter.com"><img class="logo contact-icon" src="img/twitter-logo.png" width="30" height="30"></a>
+				<a href="https://www.youtube.com"><img class="logo contact-icon" src="img/youtube-logo.png" width="30" height="30"></a>
 
 			</div>
 

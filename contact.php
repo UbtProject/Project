@@ -25,31 +25,34 @@
 					
 				<img src="img/contact-form.png">
 			</div>
-			<div class="volunteer-children child2">
+			<div class="volunteer-children child2" style="margin-left: auto; margin-right: auto;">
+
 				
 					<label class="input-label">Name: </label><br> 
 					<input class="input" id="contact-name" type="text" name="name" placeholder="Name..."><br>
 					<p class="validation" id="contact-name-valid"></p><br>
 
-					<label class="input-label">Lastname: </label><br> 
-					<input class="input" id="contact-lastname" type="text" name="lastname" placeholder="Lastname..."><br>
-					<p class="validation" id="contact-lastname-valid"></p><br>
-
 					<label class="input-label">Email: </label><br> 
-					<input class="input" id="contact-email" type="email" name="text" placeholder="Email..."><br>
+					<input class="input" id="contact-email" type="text" name="email" placeholder="Email..."><br>
 					<p class="validation" id="contact-email-valid"></p><br>
 
 					<label class="input-label">Phone Number: </label><br> 
 					<input class="input" id="contact-number" type="text" name="number" placeholder="Number..."><br>
 					<p class="validation" id="contact-number-valid"></p><br>	
-						
-					<button type="submit" name="submit" class="slide-quiz-btn" onclick="">Contact</button>
+	
+
+					<label class="input-label">Feedback: </label><br> 
+					<textarea style="height:100px;" class="input" name="feedback" id="textarea" placeholder="Write your feedback here..."></textarea><br><br>
+
+					<button type="submit" name="submit" class="slide-quiz-btn" onclick="contactValidation()">Contact</button>
 					
 			</div>
 			
 		</div>
 
-
+		<div style="height:100px;">
+			
+		</div>
 
 
 	<?php

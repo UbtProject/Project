@@ -147,6 +147,8 @@ body {
   height: 30px;
   font-size: 16px;
   border: none;
+  width: 80%;
+  border-radius: 10px;
 }
 
 .first-box{
@@ -241,3 +243,29 @@ margin-top: auto;
   flex-direction: row;
 }
 
+.contact-icon{
+  margin-right: 5px;
+}
+.input-login{
+  margin-top: 7px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  width: 100%;
+  border-radius: 10px;
+
+}
+.login-btn{
+  color: white;
+  background-color: #4885e8;
+  width: 70%;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  border:none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.login-btn:hover{
+  background-color: #3f78d4;
+}

@@ -85,7 +85,7 @@
 						<p class="validation" id="about-lastname-valid"></p><br>
 
 						<label class="input-label">Email: </label><br> 
-						<input class="input" id="about-email" type="email" name="text" placeholder="Email..."><br>
+						<input class="input" id="about-email" type="text" name="email" placeholder="Email..."><br>
 						<p class="validation" id="about-email-valid"></p><br>
 
 						<label class="input-label">Phone Number: </label><br> 
