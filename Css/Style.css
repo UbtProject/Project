@@ -144,3 +144,26 @@ body {
   height: 23px;
   font-size: 16px;
 }
+
+.first-box{
+  display: flex;
+  flex-direction: row;
+}
+.left-footer{
+  flex-direction: column;
+}
+.right-footer{
+  margin-left: auto;
+  display: flex;
+}
+.info-footer{
+  flex-direction: column;
+  font-family: monospace;
+  margin-right: 25px;
+  width: 150px;
+}
+
+.follow{
+  font-family: monospace;
+  font-size:18px;
+}

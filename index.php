@@ -164,7 +164,9 @@
 
 
 
-
+	<?php
+		include('Includes/footer.php');
+	?>
 
 
 	<script src="Js/main.js"></script>
