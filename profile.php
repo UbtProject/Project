@@ -33,7 +33,7 @@
 								<label for="file-upload" class="image-upload-label">
 			    				<i></i> Upload Image
 								</label>
-								<input id="file-upload" class="image-upload" type="file" name="myfile"><br><br><br>
+								<input  accept="image/png, image/jpg, image/jpeg" id="file-upload" class="image-upload" type="file" name="myfile"><br><br><br>
 							</td>
 							
 						</tr>
@@ -42,7 +42,7 @@
 						<tr>
 							<td colspan="2">
 								<label class="profile-label">Name:</label>
-								<input type="text" class="form-control" value="<?= $user['name'] ?>" name="name" placeholder="Name...">
+								<input  type="text" class="form-control" value="<?= $user['name'] ?>" name="name" placeholder="Name...">
 								<label class="profile-label">Lastname:</label>
 								<input type="text" class="form-control" value="<?= $user['lastname'] ?>" name="lastname" placeholder="Lastname...">
 								<label class="profile-label">Email:</label>

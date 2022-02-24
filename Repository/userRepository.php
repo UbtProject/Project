@@ -81,60 +81,45 @@ class userRepository{
 	function editUser(){
 
         $conn = $this->connection;
-      	$filename = $_FILES['myfile']['name'];
-	    $extension;
+      	$newfilename = $_FILES['myfile']['name'];
 	    $id=$_SESSION['id'];
-	    if(empty($filename)){
-	        $sql="SELECT email,profile_image FROM users WHERE id='$id'";
-	        $result = $conn->prepare($sql);
-	        $result->execute();
-	        $files=$result->fetch(PDO::FETCH_ASSOC);
-	        $filename=$files['profile_image'];
-	        $extension = pathinfo($filename, PATHINFO_EXTENSION);
-	        $newFileName= $filename;
-	    }
-	    else{
-	        $destination = 'Resources/Profile Images/'.$id . $filename;
-	        $extension = pathinfo($filename, PATHINFO_EXTENSION);
+	    $sql="SELECT email,profile_image FROM users WHERE id='$id'";
+	    $statement = $conn->query($sql);
+	    $files=$statement->fetch(PDO::FETCH_ASSOC);
+	    $filename=$files['profile_image'];
+	    $destination = 'Resources/Profile Images/'. $filename;
+	    if(!empty($newfilename)){
+	    	if($filename!="default.jpg"){
+	    		unlink($destination);
+	    	}
+	        $destination = 'Resources/Profile Images/'.$id . $newfilename;
 	        $file = $_FILES['myfile']['tmp_name'];
-
-	        if (in_array($extension, ['jpg', 'png'])) {
-	        	$newFileName= $id . $filename;
-	        	move_uploaded_file($file, $destination);
-	        }
+	        $filename= $id . $newfilename;
+	        move_uploaded_file($file, $destination);
 	    }
 
-	    if (!in_array($extension, ['jpg', 'png'])) {
-	        echo "<script> alert('Your file extension must be .jpg or .png!'); </script>";
-	    } 
-	    else {
-	        $sql = "SELECT * FROM users WHERE email=? AND id<>'$id'";
+	    
+	    $sql = "SELECT * FROM users WHERE email=? AND id<>'$id'";
 			
-			$statement = $conn->prepare($sql);
-			$statement->execute([$_POST['email']]);
+		$statement = $conn->prepare($sql);
+		$statement->execute([$_POST['email']]);
+		$count = $statement->rowCount();
+		if($count>0){
+			echo "<script>alert('Email already exists!') </script>";
 
-			$count = $statement->rowCount();
+		}
+		else{
+		$name=$_POST['name'];
+	    $lastname=$_POST['lastname'];
+	    $email=$_POST['email'];
+	    $number=$_POST['phone_number'];
+	    $id=$_SESSION['id'];
+		$date = date("l").", ".date("jS \of F Y").", ".date("h:i A");
 
-			if($count>0){
-				echo "<script>alert('Email already exists!') </script>";
+		$sql = "UPDATE users SET name='$name', lastname='$lastname', email='$email', phone_number='$number', updated_at='$date', profile_image='$filename' WHERE id='$id'";
+	    $statement = $conn->query($sql);
 
-			}
-			else{
-				$name=$_POST['name'];
-	    		$lastname=$_POST['lastname'];
-	    		$email=$_POST['email'];
-	    		$number=$_POST['phone_number'];
-	    		$id=$_SESSION['id'];
-	    		
-		    	$date = date("l").", ".date("jS \of F Y").", ".date("h:i A");
-
-		    	$sql = "UPDATE users SET name='$name', lastname='$lastname', email='$email', phone_number='$number', updated_at='$date', profile_image='$newFileName' WHERE id='$id'";
-	       			$statement = $conn->query($sql);
-
-	       			header('profile.php');
-
-
-			}
+	    header('profile.php');
 
        }
 
