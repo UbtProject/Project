@@ -1,5 +1,5 @@
 <?php
-
+//klasa per user
 class User{
     private $name;
     private $lastname;
@@ -7,19 +7,17 @@ class User{
     private $number;
 
 
-
+//konstruktori qe e krijon objektin Uer
     function __construct($name,$lastname,$email,$password,$number){
             $this->name = $name;
             $this->lastname = $lastname;
             $this->email = $email;
             $this->password = $password;
             $this->number = $number;
-
-
     }
 
 
-    
+    //getters per me i marr tdhanat prej objektit
     function getName(){
         return $this->name;
     }
