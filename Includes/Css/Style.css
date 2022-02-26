@@ -95,12 +95,14 @@ body {
   margin-top: auto;
   margin-bottom: auto;
 }
-.card-container{
+.card-container,.card-container:focus, .card-container:active {
   display: flex;
   flex-direction: column;
   width: 300px;
   text-align: left;
   margin-bottom: 20px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .card-text{
