@@ -11,7 +11,6 @@
  						<a href='Profile.php'>".$_SESSION['name']."</a>
  						<a href='logout.php'>Log out</a>
   						";
- 					
  				}
  				else{
  					echo "
@@ -19,7 +18,6 @@
   						<a href='signUp.php'>Sign Up</a>
   						";
  				}
-
  			?>
   		</div>
 	</div>

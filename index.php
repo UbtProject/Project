@@ -10,6 +10,8 @@
 <body>
 	<?php
 		include('Includes/header.php');
+        include_once 'Repository/animalRepository.php';
+
 	?>
 
 
@@ -43,103 +45,47 @@
 		<h1 class="container-title">These are our oldest rescued animals</h1><br><br>
 			<!-- Old Animals -->
 
-		<div class="animal-img">
-			<a class="img-direction">&#10094</a>
-			<div class="card-container">
-				<img class="card-img" src="Includes/img/old-dog1.jpg" width="300" height="300">
-				<div class="card-text">
-					<h1>Harold</h1><hr>
-					<p><b>Harold</b> has been in our shelter for 8 years now.</p>
-					<p>He was found as a puppy wondering the streets and scared of everyone around.</p>
-					<p>He is very quiet and likes taking naps with his head on your nap</p>
-				</div>
-			</div>
+		<div class="animal-img" style="margin-left: 20px;">
+			<?php
+			$animalRepository = new animalRepository();
+	    	$animals = $animalRepository->getOlderAnimals();
 
-			<div class="card-container">
-				<img class="card-img" src="Includes/img/old-dog2.jpg" width="300" height="300">
-				<div class="card-text">
-					<h1>Tracy</h1><hr>
-					<p><b>Tracy</b> has been in our care for 7 years.</p>
-					<p>She was given away by her owner in a terrible shape and was scared of being touched</p>
-					<p>After a long process of healing she has finally opened her heart and is more energetic than ever</p>
-					<p>She likes walking, playing or even just being patted</p>
-
+	        foreach($animals as $animal){
+	            echo "
+	           <div class='card-container'>
+				<img class='card-img' src='Includes/img/".$animal['image']."' width='300' height='300'>
+				<div class='card-text'>
+					<h1>".$animal['name']."</h1>"
+					.$animal['description']."
 				</div>
-			</div>
+			</div>";
 
-			<div class="card-container">
-				<img class="card-img" src="Includes/img/old-dog3.jpg" width="300" height="300">
-				<div class="card-text">
-					<h1>Pluto</h1><hr>
-					<p><b>Pluto</b> joined our shelter 9 years ago</p>
-					<p>He was found loitering around a village where hee was chased continously</p>
-					<p>As a long time has passed he has learnt what love feels like and likes hugging his owner</p>
-					<p>He likes taking walks around town and playing around with the owner</p>
-				</div>
-			</div>
-
-			<div class="card-container">
-				<img class="card-img" src="Includes/img/old-dog4.jpg" width="300" height="300">
-				<div class="card-text">
-					<h1>Almin</h1><hr>
-					<p><b>Almin</b> was found 2 years ago and is currently 11 years old</p>
-					<p>He was given away by his owner who could not take care of him as they had to move countries</p>
-					<p>As he received a lot of love as a puppy, he is used to being around people and is very energetic</p>
-					<p>Very energetic and jumps over anyone he meets</p>
-				</div>
-			</div>
-			<a class="img-direction">&#10095</a>
-		</div>
+	                
+            }?>
+        </div>
 
 		<!-- New Animals -->
 
 		<br><br><br><br>
 		<h1 class="container-title">These are our newest rescued animals</h1><br><br>
-		<div class="animal-img">
-			<a class="img-direction">&#10094</a>
-			<div class="card-container">
-				<img class="card-img" src="Includes/img/new_animal1.jpg" width="300" height="300">
-				<div class="card-text">
-					<h1>Katy</h1><hr>
-					<p><b>Katy</b> was born from one of our cats 2 months ago</p>
-					<p>She has very special coloring that baffles all that sees it</p>
-					<p>As she was born recently she has yet to adapt to humans but still enjoys being patted</p>
-				</div>
-			</div>
+		<div class="animal-img" style="margin-left: 20px;">
+			<?php
+			$animalRepository = new animalRepository();
+	    	$animals = $animalRepository->getNewerAnimals();
 
-			<div class="card-container">
-				<img class="card-img" src="Includes/img/new_animal2.jpg" width="300" height="300">
-				<div class="card-text">
-					<h1>Mat</h1><hr>
-					<p><b>Mat</b> was given to us 3 months ago after his owners death. He is still a puppy and has a long life ahead.</p>
-					<p>He is very energetic and loves long walks and fetch games by the sea. </p>
-					<p>An ideal family for him would be someone who has a backyard where he can run freely anytime he wants.</p>
-
+	        foreach($animals as $animal){
+	            echo "
+	           <div class='card-container'>
+				<img class='card-img' src='Includes/img/".$animal['image']."' width='300' height='300'>
+				<div class='card-text'>
+					<h1>".$animal['name']."</h1>"
+					.$animal['description']."
 				</div>
-			</div>
+			</div>";
 
-			<div class="card-container">
-				<img class="card-img" src="Includes/img/new_animal3.jpg" width="300" height="300">
-				<div class="card-text">
-					<h1>Haru</h1><hr>
-					<p><b>Haru</b> has been in our shelter for 2 months.</p>
-					<p>He has been found near a lake at only 4 months old. He is now 6 months and healthier than ever.</p>
-					<p>Haru is a very playful kitten and loves attention. A big family would be the best fit for him so he’s never alone.</p>
-				</div>
-			</div>
-
-			<div class="card-container">
-				<img class="card-img" src="Includes/img/new_animal4.jpg" width="300" height="300">
-				<div class="card-text">
-					<h1>Simba</h1><hr>
-					<p><b>Simba</b> has been in the shelter for about 4 months now.</p>
-					<p>She is around 3 years old and was found in awful conditions with two broken legs.</p>
-					<p>After numerous visits at the vet she is all healed up now and ready for her new family.</p>
-					<p>She is pretty laidback and her ideal family would be someone patient who is willing to gain her trust.</p>
-				</div>
-			</div>
-			<a class="img-direction">&#10095</a>
-		</div>
+	                
+            }?>
+        </div>
 		<br><br><br><br>
 		<!-- Volunteer Section -->
 		<div class="volunteer-background">
