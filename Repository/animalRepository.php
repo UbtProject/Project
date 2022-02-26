@@ -23,6 +23,7 @@ class animalRepository{
 
         return $animals;
     }
+    
     function getOlderAnimals(){
         $conn = $this->connection;
 
@@ -44,5 +45,17 @@ class animalRepository{
 
         return $animals;
     }
+
+    function getAnimalById($id){
+        $conn = $this->connection;
+
+        $sql = "SELECT * FROM animals WHERE ID='$id'";
+
+        $statement = $conn->query($sql);
+        $animal = $statement->fetch();
+
+        return $animal;
+    }
+    
 }
 ?> 

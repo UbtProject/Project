@@ -2,9 +2,7 @@
 	<div style="position: sticky; top: 0px;">
 		<a href="dashboard.php"><button class="btn-sidebar"><b>Dashboard</b></button></a><hr class="no-margin">
 		<a href="animals.php"><button class="btn-sidebar"><b>Animals</b></button></a><hr class="no-margin">
-		<!-- <a href="student.php"><button class="btn-sidebar"><b>Students</b></button></a><hr class="no-margin">
-		<a href="waiting.php"><button class="btn-sidebar"><b>Applications</b></button></a><hr class="no-margin">
-		<a href="lessons.php"><button class="btn-sidebar"><b>Lessons</b></button></a><hr class="no-margin">
-		<a href="signUp.php"><button class="btn-sidebar"><b>Add a teacher</b></button></a><hr class="no-margin"> -->
+		<a href="cart.php"><button class="btn-sidebar"><b>My Cart</b></button></a><hr class="no-margin">
+		
 	</div>
 </div>
