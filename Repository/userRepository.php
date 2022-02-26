@@ -1,6 +1,6 @@
 <?php 
 //config.php eshte lidhja me databaz
-include_once 'Includes/config.php';
+include_once '../Includes/config.php';
 
  
 class userRepository{
@@ -17,8 +17,8 @@ class userRepository{
 
 	function getAllUsers(){
         $conn = $this->connection;
-
-        $sql = "SELECT * FROM users";
+        $id=$_SESSION['id'];
+        $sql = "SELECT * FROM users WHERE ID<>'$id' ";
 
         $statement = $conn->query($sql);
         $users = $statement->fetchAll();
@@ -135,8 +135,13 @@ class userRepository{
         $conn = $this->connection;
         //e run emrin e file prej formes mbrenda ni variable
       	$newfilename = $_FILES['myfile']['name'];
-      	//e run IDn e userit qe vjen prej session ne nje variabes
-	    $id=$_SESSION['id'];
+      	//e run IDn e userit ne nje variabes
+	    if(isset($_GET['id'])){
+	    	$id=$_GET['id'];
+	    }
+	    else{
+	    	$id=$_SESSION['id'];
+	    }
 	    //e merr emrin e profile image ne databaz te userit
 	    $sql="SELECT profile_image FROM users WHERE id='$id'";
 	    $statement = $conn->query($sql);
@@ -149,12 +154,12 @@ class userRepository{
 	    	//nese emri i filename qe vjen prej databazes NUK eshte default.jpg ekzekutoje kodin mrena
 	    	if($filename!="default.jpg"){
 	    		//destinacioni i fotos se vjeter
-	    		$destination = 'Resources/Profile Images/'. $filename;
+	    		$destination = '../Resources/Profile Images/'. $filename;
 	    		//fshije foton e vjeter qe eshte ne kete source
 	    		unlink($destination);
 	    	}
 	    	//destinacioni ku duhet me u rujt file e ri, ja shtojm id te userit si identifikues (ne rast qe 2 usera e bajn upload foto me tnjejtin emer, id-ja nimon qe 1 file mos me overwrite tjetren)
-	        $destination = 'Resources/Profile Images/'.$id . $newfilename;
+	        $destination = '../Resources/Profile Images/'.$id . $newfilename;
 	        //e rujm file qe vjen prej formes
 	        $file = $_FILES['myfile']['tmp_name'];
 	        //e caktojm emrin e ri te fotos qe duhet me u insert ne databaz
@@ -188,13 +193,22 @@ class userRepository{
 	    $statement = $conn->query($sql);
 
 	    //te kthen apet te profile.php
-	    header('profile.php');
+	  
        }
 	}
 
 
 
+	function deleteUser($id){
+        $conn = $this->connection;
 
+        $sql = "DELETE FROM users WHERE id=?";
+
+        $statement = $conn->prepare($sql);
+
+        $statement->execute([$id]);
+
+   } 
 
 
 

@@ -1,8 +1,8 @@
 <?php
 //e thirr kodin qe eshte ne userRepository.php edhe kodin ne user.php (ku krijohen objektet)
 
-include_once 'Repository/userRepository.php';
-include_once 'Models/user.php';
+include_once '../Repository/userRepository.php';
+include_once '../Models/user.php';
 //e kqyr nese u kliku butoni me name="registerBtn"
 if(isset($_POST['registerBtn'])){
     //i run tdhanat prej formes ne variable

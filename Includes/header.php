@@ -1,6 +1,6 @@
 <header>
 	<div class="topnav">
- 		<a class="active" href="index.php"><img class="logo" src="Includes/img/Logo.png" width="17" height="17"> &nbsp;Paws</a>
+ 		<a class="active" href="index.php"><img class="logo" src="../Includes/img/Logo.png" width="17" height="17"> &nbsp;Paws</a>
  		<div class="nav-right">
  			<a href="about.php">About</a>
  			<a href="contact.php">Contact</a>

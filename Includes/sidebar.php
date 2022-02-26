@@ -3,6 +3,7 @@
 		<?php 
 		if ($_SESSION['role']=="admin") {?>
 		<a href="dashboard.php"><button class="btn-sidebar"><b>Dashboard</b></button></a><hr class="no-margin">
+		<a href="addAnimal.php"><button class="btn-sidebar"><b>Add Animal</b></button></a><hr class="no-margin">
 		<?php } ?>
 		<a href="profile.php"><button class="btn-sidebar"><b>Profile</b></button></a><hr class="no-margin">
 		<a href="animals.php"><button class="btn-sidebar"><b>Animals</b></button></a><hr class="no-margin">

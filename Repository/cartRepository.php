@@ -1,5 +1,5 @@
 <?php 
-include_once 'Includes/config.php';
+include_once '../Includes/config.php';
 
  
 class cartRepository{
@@ -58,5 +58,24 @@ class cartRepository{
         $items = $statement->fetchAll();
 
         return $items;
+    }
+    function getCartById($id){
+        $conn = $this->connection;
+
+        $sql = "SELECT * FROM cart WHERE ID='$id'";
+
+        $statement = $conn->query($sql);
+        $animal = $statement->fetch();
+
+        return $animal;
+    }
+    function editAdoption(){
+
+        $conn = $this->connection;
+       
+        $id=$_GET['id'];
+        $delivered=$_POST['delivered'];
+        $sql = "UPDATE cart SET delivered='$delivered' WHERE id='$id'";
+        $statement = $conn->query($sql);
     }
 }

@@ -1,5 +1,6 @@
-
-function volunteer(){
+var volunteerBtn = document.getElementById('volunteerBtn');
+volunteerBtn.addEventListener("click", function (event) {
+	
 	var regexName=/^[a-zA-Z]{2,20}( )?[a-zA-Z]{2,20}(( )[a-zA-Z]{2,20})?$/;
 	var regexEmail=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
 	var regexNumber=/\d{7,15}/;
@@ -14,29 +15,33 @@ function volunteer(){
 
 	if(name.value==""||!regexName.test(name.value)){
  		validName.innerHTML=" Name Not Valid";
+ 		event.preventDefault();
 	}
 	else{
 		validName.innerHTML="";
 	}
 	if(lastname.value==""||!regexName.test(lastname.value)){
  		validLastame.innerHTML=" Lastname Not Valid";
+ 		event.preventDefault();
 	}
 	else{
 		validLastame.innerHTML="";
 	}
 	if(email.value==""||!regexEmail.test(email.value)){
  		validEmail.innerHTML=" Email Not Valid";
+ 		event.preventDefault();
 	}
 	else{
 		validEmail.innerHTML="";
 	}
 	if(number.value==""||!regexNumber.test(number.value)){
  		validNumber.innerHTML=" Number Not Valid";
+ 		event.preventDefault();
 	}
 	else{
 		validNumber.innerHTML="";
 	}
-}
+});
 
 function aboutValidation(){
 	var regexName=/^[a-zA-Z]{2,20}( )?[a-zA-Z]{2,20}(( )[a-zA-Z]{2,20})?$/;
@@ -113,9 +118,6 @@ function contactValidation(){
 }
 
 var loginBtn = document.getElementById('loginBtn');
-
-
-
 loginBtn.addEventListener("click", function (event) {
 	var regexEmail=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
 	var regexPass=/[A-Z]\w{7,15}/;
