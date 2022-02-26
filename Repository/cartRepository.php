@@ -35,4 +35,28 @@ class cartRepository{
 
         return $animals;
     }
+    function getTotalOfWinnings(){
+        $conn = $this->connection;
+        $sql = "SELECT SUM(price) as total FROM cart";
+        $statement = $conn->query($sql);
+        $animals = $statement->fetch();
+        return $animals;
+    }
+    function getNumberOfAdoptions(){
+        $conn = $this->connection;
+        $sql = "SELECT COUNT(*) as total FROM cart";
+        $statement = $conn->query($sql);
+        $adoptions = $statement->fetch();
+        return $adoptions;
+    }
+    function getAllItems(){
+        $conn = $this->connection;
+
+        $sql = "SELECT * FROM cart";
+
+        $statement = $conn->query($sql);
+        $items = $statement->fetchAll();
+
+        return $items;
+    }
 }

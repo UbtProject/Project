@@ -5,15 +5,16 @@ class User{
     private $lastname;
     private $email;
     private $number;
-
+    private $role;
 
 //konstruktori qe e krijon objektin Uer
-    function __construct($name,$lastname,$email,$password,$number){
+    function __construct($name,$lastname,$email,$password,$number,$role){
             $this->name = $name;
             $this->lastname = $lastname;
             $this->email = $email;
             $this->password = $password;
             $this->number = $number;
+            $this->role = $role;
     }
 
 
@@ -32,6 +33,9 @@ class User{
     }
     function getNumber(){
         return $this->number;
+    }
+    function getRole(){
+        return $this->role;
     }
     
 }

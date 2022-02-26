@@ -321,7 +321,7 @@ margin-top: auto;
 
 
 .table-bordered th,
-.table-bordered td {
+.table-bordered td  {
   border: 1px solid #dee2e6;
 }
 
@@ -329,6 +329,22 @@ margin-top: auto;
   border-collapse: collapse;
   width: 60%;
   margin: 100px auto;
+}
+.dashboard-table{
+  border-collapse: collapse;
+  width: 60%;
+}
+.dashboard-table th,
+.dashboard-table td  {
+  padding: 7px;
+}
+.dashboard-table th  {
+  color: white;
+  background-color: #3d3939;
+  border-color: black;
+}
+.dashboard-table tr:hover  {
+  background-color: #f2f2f2;
 }
 .profile-table:focus{
   outline-width: 0;
@@ -396,4 +412,63 @@ margin-top: auto;
 .cart-btn:hover {
   background: #3cb0fd;
   text-decoration: none;
+}
+.red-card{
+  background-color: #ff2b4b;
+}
+.blue-card{
+  background-color: lightblue;
+}
+.yellow-card{
+  background-color: #d4c200;
+}
+.green-card{
+  background-color: #24d436;
+}
+.dashboard-card-container{
+  justify-content: space-evenly;
+  display:flex; 
+  color: white; 
+  width:100%;
+  margin-top: 30px;
+}
+.dashboard-card-text{
+  padding: 5px;
+  font-size: 20px;
+}
+.align-center{
+  margin-left: auto;
+  margin-right: auto;
+}
+.editBtn{
+  border: none;
+  border-radius: 15px;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 18px;
+  background: #3498db;
+  padding: 7px;
+  text-decoration: none;
+}
+.editBtn:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+.deleteBtn {
+  border: none;
+  border-radius: 15px;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 18px;
+  background: #fa3535;
+  padding: 7px;
+  text-decoration: none;
+}
+
+.deleteBtn:hover {
+  background: #fa4646;
+  text-decoration: none;
+}
+.align-text-center{
+  text-align: center;
 }

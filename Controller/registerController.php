@@ -10,10 +10,11 @@ if(isset($_POST['registerBtn'])){
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
     $number = $_POST['number'];
+    $role = "user";
     //passwordin e inkripton ne hash
     $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
     //e thirr konstruktorin e Userit edhe e krijon ni objekt tri
-    $user  = new User($name,$lastname,$email,$password,$number);
+    $user  = new User($name,$lastname,$email,$password,$number,$role);
     //e krijon ni instance te UserRepository
     $userRepository = new UserRepository();
     //e thirr funksionin insertUser(); edhe e dergon objektin qe sa e krijum si parameter

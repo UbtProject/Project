@@ -23,7 +23,7 @@
 			<?php include('Includes/sidebar.php'); ?>
 			<div style="width: 84%;">
 				<form action="" method="post" style="display:flex; padding:30px;">
-					<img src="Includes/img/<?=$animal['image']?>" width='40%' height='40%'>
+					<img src="Resources/Animal Images/<?=$animal['image']?>" width='40%' height='40%'>
 					<div style="padding:40px; font-size:20px;">
 						<h1><?=$animal['name'];?></h1><br>
 						<?=$animal['description'];?><br>

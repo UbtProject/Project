@@ -53,7 +53,7 @@
 	        foreach($animals as $animal){
 	            echo "
 	           <div class='card-container'>
-				<img class='card-img' src='Includes/img/".$animal['image']."' width='300' height='300'>
+				<img class='card-img' src='Resources/Animal Images/".$animal['image']."' width='300' height='300'>
 				<div class='card-text'>
 					<h1>".$animal['name']."</h1>"
 					.$animal['description']."
@@ -76,7 +76,7 @@
 	        foreach($animals as $animal){
 	            echo "
 	           <div class='card-container'>
-				<img class='card-img' src='Includes/img/".$animal['image']."' width='300' height='300'>
+				<img class='card-img' src='Resources/Animal Images/".$animal['image']."' width='300' height='300'>
 				<div class='card-text'>
 					<h1>".$animal['name']."</h1>"
 					.$animal['description']."

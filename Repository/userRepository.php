@@ -15,7 +15,16 @@ class userRepository{
 
 
 
+	function getAllUsers(){
+        $conn = $this->connection;
 
+        $sql = "SELECT * FROM users";
+
+        $statement = $conn->query($sql);
+        $users = $statement->fetchAll();
+
+        return $users;
+    }
 
 
 
@@ -41,6 +50,7 @@ class userRepository{
 	    	$email = $user->getEmail();
 	    	$password = $user->getPassword();
 	    	$pNumber = $user->getNumber();
+	    	$role = $user->getRole();
 	    	//e run daten momentale se kur u kriju useri ne formatin:
 	    	// day, date of month year, hour:minutes
 	    	//example: Wednesday, 24th of February 2022, 11:29 PM
@@ -48,9 +58,9 @@ class userRepository{
 
 	        
 	    	//e krijojm query per me i insertu tdhanat ne databaz
-	    	$sql = "INSERT INTO users (name, lastname, email, password, phone_number, created_at) VALUES (?,?,?,?,?,?)";
+	    	$sql = "INSERT INTO users (name, lastname, email, password, phone_number, role, created_at) VALUES (?,?,?,?,?,?,?)";
 	    	$statement = $conn->prepare($sql);
-	    	$statement->execute([$name,$lastname,$email,$password,$pNumber,$date]);
+	    	$statement->execute([$name,$lastname,$email,$password,$pNumber,$role,$date]);
 	    }
 	}
 
@@ -204,7 +214,13 @@ class userRepository{
         return $user;
     }
 
-
+    function getNumberOfUsers(){
+        $conn = $this->connection;
+        $sql = "SELECT COUNT(*) as total FROM users";
+        $statement = $conn->query($sql);
+        $users = $statement->fetch();
+        return $users;
+    }
 
 }
 

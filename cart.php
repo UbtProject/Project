@@ -25,15 +25,15 @@
 					<?php
 	            	foreach($animals as $animal){
 	            		echo "
-	            		<a class='card-container' href='adopt.php?id=".$animal['ID']."'>
-							<img class='card-img' src='Includes/img/".$animal['image']."' width='300' height='300'>
+	            		<div class='card-container'>
+							<img class='card-img' src='Resources/Animal Images/".$animal['image']."' width='300' height='300'>
 							<div class='card-text'>
 								<h1>".$animal['name']."</h1>"
 								.$animal['description']."
 								<p>Price: ".$animal['price']."$</p>
 								<p>Status: ".$animal['delivered']."</p>
 							</div>
-						</a>";
+						</div>";
              		}?>
              	</div>
 			</div>

@@ -56,6 +56,13 @@ class animalRepository{
 
         return $animal;
     }
+    function getNumberOfAnimals(){
+        $conn = $this->connection;
+        $sql = "SELECT COUNT(*) as total FROM animals";
+        $statement = $conn->query($sql);
+        $animals = $statement->fetch();
+        return $animals;
+    }
     
 }
 ?> 
