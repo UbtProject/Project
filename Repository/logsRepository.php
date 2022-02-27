@@ -25,6 +25,16 @@ class logsRepository{
         return $logs;
     }
 
+    function getLogsById($id){
+        $conn = $this->connection;
+
+        $sql = "SELECT * FROM logs WHERE userID='$id' ORDER BY ID DESC";
+        $statement = $conn->query($sql);
+        $logs = $statement->fetchAll();
+
+        return $logs;
+    }
+
 }
 
 

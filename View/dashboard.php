@@ -93,7 +93,7 @@
 							<td><?= $user['phone_number']?></td>
 							<td><?= $user['role']?></td>
 							<td class="align-text-center"><a href='editUser.php?id=<?=$user["ID"]?>'><button class="editBtn">Edit</button></a></td>
-							<td class="align-text-center"><a href='dashboard.php?id=<?=$user["ID"]?>'><button class="deleteBtn">Delete</button></a></td>
+							<td class="align-text-center"><a href='dashboard.php?deleteID=<?=$user["ID"]?>'><button class="deleteBtn">Delete</button></a></td>
 						</tr>
 					<?php
 					}
@@ -205,6 +205,7 @@
 						<th>User</th>
 						<th>Action</th>
 						<th>Log Date</th>
+						<th>Users Logs</th>
 					</tr>
 					<?php 
 					foreach($logs as $log){
@@ -215,7 +216,7 @@
 							<td><?= $user['name']." ".$user['lastname']?></td>
 							<td><?= $log['action']?></td>
 							<td><?= $log['log_date']?></td>
-							
+							<td class="align-text-center"><a href='auditLogs.php?id=<?=$user["ID"]?>'><button class="editBtn">Users Logs</button></a></td>
 						</tr>
 					<?php
 					}

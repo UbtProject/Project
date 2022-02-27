@@ -1,6 +1,6 @@
 <?php
-if (isset($_GET['id'])) {
-$userId = $_GET['id'];
+if (isset($_GET['deleteID'])) {
+$userId = $_GET['deleteID'];
 include_once '../Repository/userRepository.php';
 
 
