@@ -8,6 +8,7 @@ if(isset($_POST['editBtn'])){
         $userRepository = new UserRepository();
         //e thirr funksionin editUser();
         $userRepository->editUser();
+
     }
 
 ?>

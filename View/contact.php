@@ -26,7 +26,7 @@
 				<img src="../Includes/img/contact-form.png">
 			</div>
 			<div class="volunteer-children child2" style="margin-left: auto; margin-right: auto;">
-
+				<form action="" method="post">
 				
 					<label class="input-label">Name: </label><br> 
 					<input class="input" id="contact-name" type="text" name="name" placeholder="Name..."><br>
@@ -43,9 +43,10 @@
 
 					<label class="input-label">Feedback: </label><br> 
 					<textarea style="height:100px;" class="input" name="feedback" id="textarea" placeholder="Write your feedback here..."></textarea><br><br>
+					<p class="validation" id="contact-feedback-valid"></p><br>
 
-					<button type="submit" name="submit" class="slide-quiz-btn" onclick="contactValidation()">Contact</button>
-					
+					<button id="contactBtn" type="submit" name="addFeedback" class="slide-quiz-btn">Contact</button>
+				</form>
 			</div>
 			
 		</div>
@@ -56,10 +57,60 @@
 
 
 	<?php
+
+		include('../Controller/addFeedbackController.php');
 		include('../Includes/footer.php');
 	?>
 	</div>
+	<script type="text/javascript">
+		var contactBtn = document.getElementById("contactBtn");
+contactBtn.addEventListener("click", function (event) {
+	var regexName=/^[a-zA-Z]{2,20}( )?[a-zA-Z]{2,20}(( )[a-zA-Z]{2,20})?$/;
+	var regexEmail=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+	var regexNumber=/\d{7,15}/;
+	var regexFeedback=/^[a-zA-Z0-9_\-\.]+/;
 
-	<script src="../Includes/Js/main.js"></script>
+	var name =document.getElementById('contact-name');
+	var validName =document.getElementById('contact-name-valid');
+	var email =document.getElementById('contact-email');
+	var validEmail =document.getElementById('contact-email-valid');
+	var number =document.getElementById('contact-number');
+	var validNumber =document.getElementById('contact-number-valid');
+	var textarea =document.getElementById('textarea');
+	var validTextarea =document.getElementById('contact-feedback-valid');
+	
+	if(name.value==""||!regexName.test(name.value)){
+ 		validName.innerHTML=" Name Not Valid";
+ 		event.preventDefault();
+	}
+	else{
+		validName.innerHTML="";
+	}
+	
+	if(email.value==""||!regexEmail.test(email.value)){
+ 		validEmail.innerHTML=" Email Not Valid";
+ 		event.preventDefault();
+ 		event.preventDefault();
+	}
+	else{
+		validEmail.innerHTML="";
+	}
+	if(number.value==""||!regexNumber.test(number.value)){
+ 		validNumber.innerHTML=" Number Not Valid";
+ 		event.preventDefault();
+	}
+	else{
+		validNumber.innerHTML="";
+	}
+	if(!regexFeedback.test(textarea.value)){
+ 		validTextarea.innerHTML=" Feedback can't be empty";
+ 		event.preventDefault();
+	}
+	
+	else{
+		validNumber.innerHTML="";
+	}
+});
+	</script>
 </body>
 </html>

@@ -37,7 +37,14 @@ class animalRepository{
             $sql = "INSERT INTO animals (name, description, price, image) VALUES (?,?,?,?)";
             $statement = $conn->prepare($sql);
             $statement->execute([$name,$description,$price,$filename]);
-            echo "<script>alert('Dogge!') </script>";
+            
+
+          
+            $date = date("l").", ".date("jS \of F Y").", ".date("h:i A");
+            $sql = "INSERT INTO logs (userID, action, log_date) VALUES (?,?,?)";
+            $action= "User: ". $_SESSION['name']. " ". $_SESSION['lastname']. " with the ID: ". $_SESSION['id'] . " has inserted: " .$name;
+            $statement = $conn->prepare($sql);
+            $statement->execute([$_SESSION['id'],$action,$date]);
 
         }
     
@@ -120,10 +127,24 @@ class animalRepository{
         $description=$_POST['description'];
         $sql = "UPDATE animals SET name='$name', price='$price', description='$description', image='$filename' WHERE id='$id'";
         $statement = $conn->query($sql);
+
+        $date = date("l").", ".date("jS \of F Y").", ".date("h:i A");
+        $sql = "INSERT INTO logs (userID, action, log_date) VALUES (?,?,?)";
+        $action= "User: ". $_SESSION['name']. " ". $_SESSION['lastname']. " with the ID: ". $_SESSION['id'] . " has updated: " .$name. " with the ID: " . $id;
+        $statement = $conn->prepare($sql);
+        $statement->execute([$_SESSION['id'],$action,$date]);
     }
 
     function deleteAnimal($id){
         $conn = $this->connection;
+        $animalRepository = new animalRepository();
+        $animal = $animalRepository->getAnimalById($id);
+
+        $date = date("l").", ".date("jS \of F Y").", ".date("h:i A");
+        $sql = "INSERT INTO logs (userID, action, log_date) VALUES (?,?,?)";
+        $action= "User: ". $_SESSION['name']. " ". $_SESSION['lastname']. " with the ID: ". $_SESSION['id'] . " has deleted: " .$animal['name']. " with the ID: " . $id;
+        $statement = $conn->prepare($sql);
+        $statement->execute([$_SESSION['id'],$action,$date]);
 
         $sql = "DELETE FROM animals WHERE id=?";
 

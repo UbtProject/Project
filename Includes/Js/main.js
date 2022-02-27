@@ -43,7 +43,9 @@ volunteerBtn.addEventListener("click", function (event) {
 	}
 });
 
-function aboutValidation(){
+
+var volunteerButton = document.getElementById("volunteerButton");
+volunteerButton.addEventListener("click", function (event) {
 	var regexName=/^[a-zA-Z]{2,20}( )?[a-zA-Z]{2,20}(( )[a-zA-Z]{2,20})?$/;
 	var regexEmail=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
 	var regexNumber=/\d{7,15}/;
@@ -51,7 +53,7 @@ function aboutValidation(){
 	var name =document.getElementById('about-name');
 	var validName =document.getElementById('about-name-valid');
 	var lastname =document.getElementById('about-lastname');
-	var validLastame =document.getElementById('about-lastname-valid');
+	var validLastname =document.getElementById('about-lastname-valid');
 	var email =document.getElementById('about-email');
 	var validEmail =document.getElementById('about-email-valid');
 	var number =document.getElementById('about-number');
@@ -59,63 +61,33 @@ function aboutValidation(){
 	
 	if(name.value==""||!regexName.test(name.value)){
  		validName.innerHTML=" Name Not Valid";
+ 		event.preventDefault();
 	}
 	else{
 		validName.innerHTML="";
 	}
 	if(lastname.value==""||!regexName.test(lastname.value)){
- 		validLastame.innerHTML=" Lastname Not Valid";
+ 		validLastname.innerHTML=" Lastname Not Valid";
+ 		event.preventDefault();
 	}
 	else{
-		validLastame.innerHTML="";
+		validLastname.innerHTML="";
 	}
 	if(email.value==""||!regexEmail.test(email.value)){
  		validEmail.innerHTML=" Email Not Valid";
+ 		event.preventDefault();
 	}
 	else{
 		validEmail.innerHTML="";
 	}
 	if(number.value==""||!regexNumber.test(number.value)){
  		validNumber.innerHTML=" Number Not Valid";
+ 		event.preventDefault();
 	}
 	else{
 		validNumber.innerHTML="";
 	}
-}
-
-function contactValidation(){
-	var regexName=/^[a-zA-Z]{2,20}( )?[a-zA-Z]{2,20}(( )[a-zA-Z]{2,20})?$/;
-	var regexEmail=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-	var regexNumber=/\d{7,15}/;
-
-	var name =document.getElementById('contact-name');
-	var validName =document.getElementById('contact-name-valid');
-	
-	var email =document.getElementById('contact-email');
-	var validEmail =document.getElementById('contact-email-valid');
-	var number =document.getElementById('contact-number');
-	var validNumber =document.getElementById('contact-number-valid');
-	
-	if(name.value==""||!regexName.test(name.value)){
- 		validName.innerHTML=" Name Not Valid";
-	}
-	else{
-		validName.innerHTML="";
-	}
-	
-	if(email.value==""||!regexEmail.test(email.value)){
- 		validEmail.innerHTML=" Email Not Valid";
-	}
-	else{
-		validEmail.innerHTML="";
-	}
-	if(number.value==""||!regexNumber.test(number.value)){
- 		validNumber.innerHTML=" Number Not Valid";
-	}
-	else{
-		validNumber.innerHTML="";
-	}
-}
+});
 
 var loginBtn = document.getElementById('loginBtn');
 loginBtn.addEventListener("click", function (event) {
@@ -146,10 +118,10 @@ loginBtn.addEventListener("click", function (event) {
 	}
 	
 });
+
+
+
 var registerBtn = document.getElementById('registerBtn');
-
-
-
 registerBtn.addEventListener("click", function (event) {
 	var regexName=/^[a-zA-Z]{2,20}( )?[a-zA-Z]{2,20}(( )[a-zA-Z]{2,20})?$/;
 	var regexEmail=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;

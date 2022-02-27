@@ -20,8 +20,20 @@ class cartRepository{
         $sql = "INSERT INTO cart (userID, name, description, image, price) VALUES (?,?,?,?,?)";
 	    $statement = $conn->prepare($sql);
 	    $statement->execute([$_SESSION['id'],$animal['name'],$animal['description'],$animal['image'],$animal['price']]);
+
+
+        $date = date("l").", ".date("jS \of F Y").", ".date("h:i A");
+        $sql = "INSERT INTO logs (userID, action, log_date) VALUES (?,?,?)";
+        $action= "User: ". $_SESSION['name']. " ". $_SESSION['lastname']. " with the ID: ". $_SESSION['id'] . " has adopted: " .$animal['name'];
+        $statement = $conn->prepare($sql);
+        $statement->execute([$_SESSION['id'],$action,$date]);
+
+
+
 	    $sql = "DELETE FROM animals WHERE ID='$animalID'";
 	    $statement = $conn->query($sql);
+
+        
        	header("location:cart.php");
     }
     
@@ -77,5 +89,14 @@ class cartRepository{
         $delivered=$_POST['delivered'];
         $sql = "UPDATE cart SET delivered='$delivered' WHERE id='$id'";
         $statement = $conn->query($sql);
+
+        $cartRepository = new cartRepository();
+        $cart = $cartRepository->getCartById($id);
+
+        $date = date("l").", ".date("jS \of F Y").", ".date("h:i A");
+        $sql = "INSERT INTO logs (userID, action, log_date) VALUES (?,?,?)";
+        $action= "User: ". $_SESSION['name']. " ". $_SESSION['lastname']. " with the ID: ". $_SESSION['id'] . " has updated: " .$cart['name']. " with the ID: " . $id;
+        $statement = $conn->prepare($sql);
+        $statement->execute([$_SESSION['id'],$action,$date]);
     }
 }

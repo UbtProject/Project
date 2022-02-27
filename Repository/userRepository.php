@@ -26,19 +26,20 @@ class userRepository{
         return $users;
     }
 
-
-
 //funksioni qe perdoret per me insert nje user ne databaze (thirret prej registerController)
 	function insertUser($user){
 		//e run lidhjen e databazen mrena variables $conn
         $conn = $this->connection;
         //ni select i thjeshte qe e kontrollon a ekziston emaila ne databaz qe po munohet me register useri
-        $sql = "SELECT Name FROM users WHERE email=?";
+        $sql = "SELECT name FROM users WHERE email=?";
 		$statement = $conn->prepare($sql);
 		$statement->execute([$_POST['email']]);
-
-		//e kontrollon a ka marr naj tdhane prej databazes, nese po $count bahet 1 qe dmth emaila ekziston, nese jo ateher emaila nuk ekziston dhe useri eshte i ri
 		$count = $statement->rowCount();
+		$sql = "SELECT name FROM volunteer WHERE email=?";
+		$statement = $conn->prepare($sql);
+		$statement->execute([$_POST['email']]);
+		$count = $count + $statement->rowCount();
+		//e kontrollon a ka marr naj tdhane prej databazes, nese po $count bahet 1 qe dmth emaila ekziston, nese jo ateher emaila nuk ekziston dhe useri eshte i ri
 		if($count>0){
 			echo "<script>alert('Email already exists!') </script>";
 
@@ -56,23 +57,32 @@ class userRepository{
 	    	//example: Wednesday, 24th of February 2022, 11:29 PM
 	    	$date = date("l").", ".date("jS \of F Y").", ".date("h:i A");
 
-	        
+
 	    	//e krijojm query per me i insertu tdhanat ne databaz
 	    	$sql = "INSERT INTO users (name, lastname, email, password, phone_number, role, created_at) VALUES (?,?,?,?,?,?,?)";
 	    	$statement = $conn->prepare($sql);
 	    	$statement->execute([$name,$lastname,$email,$password,$pNumber,$role,$date]);
+
+	    	if(isset($_SESSION['id'])){
+	    		$id=$_SESSION['id'];
+	    	}
+	    	else{
+	    		$sql = "SELECT ID FROM users WHERE email='$email'";
+				$statement = $conn->query($sql);
+       			$user = $statement->fetch(PDO::FETCH_ASSOC);
+       			$id=$user['ID'];
+	    	}
+	    	
+	    	$userRepository = new UserRepository();
+	    	$user = $userRepository->getUserById($id);
+
+	    	$sql = "INSERT INTO logs (userID, action, log_date) VALUES (?,?,?)";
+       		$action= "User: ". $name . " ". $lastname . " with the ID: ". $id. " has been registered";
+       		$statement = $conn->prepare($sql);
+	   		$statement->execute([$id,$action,$date]);
+
 	    }
 	}
-
-
-
-
-
-
-
-
-
-
 
 //funksioni qe perdoret per me u login nje user (thirret prej loginController)
 	function logIn(){
@@ -83,7 +93,7 @@ class userRepository{
         $password=$_POST['password'];
 
         //e kontrollen nese emaila qe e ka shkrujt useri ekziston ne databazen tone
-       	$sql = "SELECT id,name, role, password FROM users WHERE email='$email'";
+       	$sql = "SELECT * FROM users WHERE email='$email'";
 		$statement = $conn->query($sql);
        	$user = $statement->fetch(PDO::FETCH_ASSOC);
 
@@ -106,25 +116,25 @@ class userRepository{
        			//e startojm nje session qe perdoret per me rujt variabla qe munden me u perdor nqdo file
        			session_start();
        			$_SESSION['name'] = $user['name'];
+       			$_SESSION['lastname'] = $user['lastname'];
        			$_SESSION['role'] = $user['role'];
-       			$_SESSION['id'] = $user['id'];
+       			$_SESSION['id'] = $user['ID'];
        			//e shtojm kohen e fundit kur ka log in useri
        			$sql = "UPDATE users SET last_access='$date' WHERE email='$email'";
        			$statement = $conn->query($sql);
+
+       			$sql = "INSERT INTO logs (userID, action, log_date) VALUES (?,?,?)";
+       			$action= "User: ". $user['name']. " ". $user['lastname']. " with the ID: ". $user['ID'] . " logged in";
+       			$statement = $conn->prepare($sql);
+	    		$statement->execute([$user['ID'],$action,$date]);
+
        			//tqon te profile.php pasi je log in
        			header("location:profile.php");
+
         	}
     	}
 
 	}
-
-
-
-
-
-
-
-
 
 
 
@@ -172,6 +182,7 @@ class userRepository{
 	    $sql = "SELECT * FROM users WHERE email=? AND id<>'$id'";
 		$statement = $conn->prepare($sql);
 		$statement->execute([$_POST['email']]);
+		
 		//nese tkthen rezultat ateher emaila ekziston
 		$count = $statement->rowCount();
 		if($count>0){
@@ -191,21 +202,35 @@ class userRepository{
 		//e krijojme nje query per me i update tdhanat ne databaz
 		$sql = "UPDATE users SET name='$name', lastname='$lastname', email='$email', phone_number='$number', updated_at='$date', profile_image='$filename' WHERE id='$id'";
 	    $statement = $conn->query($sql);
-
-	    //te kthen apet te profile.php
-	  
+	    $userID=$_SESSION['id'];
+	    $userRepository = new UserRepository();
+	    $user = $userRepository->getUserById($id);
+		$sql = "INSERT INTO logs (userID, action, log_date) VALUES (?,?,?)";
+       	$action= "User: ". $user['name']. " " . $user['lastname'] . " with the ID " . $user['ID'] . " has been updated by the user: " . $_SESSION['name'] . " " . $_SESSION['lastname'] . " with the ID: " . $_SESSION['id']; 
+       	$statement = $conn->prepare($sql);
+	    $statement->execute([$userID,$action,$date]);	  
        }
 	}
 
 
 
 	function deleteUser($id){
+		$conn = $this->connection;
+		$userID=$_SESSION['id'];
+        $userRepository = new UserRepository();
+	    $user = $userRepository->getUserById($id);
+		$date = date("l").", ".date("jS \of F Y").", ".date("h:i A");
+
+        $sql = "INSERT INTO logs (userID, action, log_date) VALUES (?,?,?)";
+       	$action= "User: ". $user['name']. " " . $user['lastname'] . " with the ID: " . $user['ID'] . " has been deleted by the user: " . $_SESSION['name'] . " " . $_SESSION['lastname'] . " with the ID: " . $userID; 
+       	$statement = $conn->prepare($sql);
+	    $statement->execute([$userID,$action,$date]);
+
+
+
         $conn = $this->connection;
-
         $sql = "DELETE FROM users WHERE id=?";
-
         $statement = $conn->prepare($sql);
-
         $statement->execute([$id]);
 
    } 

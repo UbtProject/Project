@@ -75,7 +75,7 @@
 			<div class="volunteer-container">
 				<img class="about-main-img" src="../Includes/img/animal-shelter2.jpg" >
 				<div class="volunteer-children child2">
-					
+					<form action="" method="post">
 						<label class="input-label">Name: </label><br> 
 						<input class="input" id="about-name" type="text" name="name" placeholder="Name..."><br>
 						<p class="validation" id="about-name-valid"></p><br>
@@ -92,8 +92,8 @@
 						<input class="input" id="about-number" type="text" name="number" placeholder="Number..."><br>
 						<p class="validation" id="about-number-valid"></p><br>	
 
-						<button type="submit" name="submit" class="slide-quiz-btn" onclick="aboutValidation()">Volunteer</button>
-					
+						<button id="volunteerButton" type="submit" name="volunteerSubmit" class="slide-quiz-btn">Volunteer</button>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -104,6 +104,7 @@
 	
 	
 	<?php
+		include('../Controller/registerVolunteerController.php');
 		include('../Includes/footer.php');
 	?>
 	</div>
